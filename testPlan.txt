@@ -1,0 +1,50 @@
+# Test Plan
+
+## Objective
+
+To validate requirements and ensure that adding, editing, and deleting employee is fully functional.  Automated test cases should make sure that key flows are performing as expected.
+
+### Website under test:  https://devmountain-qa.github.io/employee-manager-v2/build/index.html
+### Trello Board: https://trello.com/b/TOTbleMI/checkpoint-3-employee-manager-v2
+### Git Repo:  https://github.com/russellwcarey/employee-manager-v2.git
+
+
+## Test Cases:
+### Employee Manager Website (v2)
+
+### Automated Tests
+
+	1) Test: Load a simulated list of employees
+	2) Test: Allow modifications to each employee
+	3) Test: Clicking on employee from list to side will being up their file in the editor
+	4) Test:  Adding employee option at bottom will allow a new employee record to be created
+	5) Test: New employee record will default name/title to "New Employee", with phone number (111)111-1111
+	6) Test: An id number will be greater than the last employee created, so that ID's are never repeated (unique ID)
+	7) Test: Employee will consist of ID, Name, Phone, Title
+	8) Test: ID should not be editable
+	9) Test: ID Should be whole numbers between 0 and 9999
+	10) Test: Name should allow any character, up to 30 characters
+	11) Test: Phone must be a 10 digit phone number
+	12) Test: Phone number should be formatted as follows 1111111111 (not including dashes)
+	13) Test: Phone number can be formatted as a US number (e.g., (111)111-1111)
+	14) Test: If entered as 1111111111 should be displayed as (111)111-1111
+	15) Test: Saving a change persists if you access other record and navigate back to the desired employee
+	16) Test: If there are unacceptable entries in related fields, an error message will pop up, advising the users as to the errors they need to fix
+	17) Test: The cancel button will revert the employees file back to the most recently saved version
+	18) Test: The delete button will remove the employees record
+	19) Test: The delete button is irreversible
+	20) Test: The delete button prompts a dialogue box asking the user to confirm their desire to remove the record that is presented
+	21) Test: The save button will only be accessible when modifications have been made
+	22) Test: The cancel button will only be accessible when modifications have been made
+	23) Test: Search bar will compare inputs to all fields on all employees
+	24) Test: Search bar will filter the employee list for any employee that has at least one match
+	25) Test: The clear button will empty the search field and revert to display ALL employees
+	26) Test: Employee List will reside in a database and be accessed through API integration (can it BE accessed?)
+
+### API Tests (w/ Postman)
+
+	1) API Test: GET: will return an array of employees
+	2) API Test: POST: Will add an employee IF the Body of the request contains a JSON with the properties ID, Name, Phone, Email, and Title
+	3) API Test: PUT: will edit an existing employee when sent to api/employees/{employeeId} with parameters of Name, Phone, Email, and Title
+	4) API Test: DELETE: will delete an existing employee when the request is sent to api/employees/{employeeId}
+	5) API Test: Any request will return an array of the current employees in the database
